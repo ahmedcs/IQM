@@ -1,10 +1,10 @@
 # IQM
 IQM is a switch-based incast-aware congestion control scheme targeted for Data Centre Networks implemented as a load-able Linux-Kernel Module and as a Patch applicable to OpenvSwitch datapath
 
-## Installation Guide
+# Installation Guide
 Please Refer to the InstallMe file for more information about installation and possible usage scenarios.
 
-#Feedback
+# Feedback
 I always welcome and love to have feedback on the program or any possible improvements, please do not hesitate to contact me by commenting on the code or dropping me an email at ahmedcs982@gmail.com.  
 ```
 PS: this is one of the reasons for me to share the software.
