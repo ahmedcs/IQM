@@ -47,9 +47,9 @@
 
 #define DEV_MAX 1000
 
-static bool iqm_detected = false;
-module_param(iqm_detected, bool, 0644);
-MODULE_PARM_DESC(iqm_detected, " iqm_detected enables IQM incast detection mechanism");
+static bool iqm_enable = false;
+module_param(iqm_enable, bool, 0644);
+MODULE_PARM_DESC(iqm_enable, " iqm_enable enables IQM incast detection mechanism");
 
 static int M = 16;
 module_param(M, int, 0644);
@@ -78,9 +78,9 @@ static bool fail=false;
 static struct timespec currincast_tm[DEV_MAX];
 static struct timespec curr_tm;
 
-bool iqm_detect(void)
+bool iqm_ebnale(void)
 {
-    return iqm_detected;
+    return iqm_enable;
 }
 
 enum hrtimer_restart timer_callback(struct hrtimer *timer)
@@ -118,7 +118,7 @@ enum hrtimer_restart timer_callback(struct hrtimer *timer)
     else
         count++;
 
-    if(iqm_detected)
+    if(iqm_enable)
     {
 		timerrun=true;
         ktime_t ktnow = hrtimer_cb_get_time(&my_hrtimer);
@@ -132,7 +132,7 @@ enum hrtimer_restart timer_callback(struct hrtimer *timer)
 
 void process_packet(struct sk_buff *skb, struct vport *inp , struct vport *outp)
 {
-    if(!iqm_detected)
+    if(!iqm_enable)
 		return;
     const struct net_device *in=netdev_vport_priv(inp)->dev;
     const struct net_device *out=netdev_vport_priv(outp)->dev;
@@ -292,7 +292,7 @@ void init_iqm(void)
         interval = 1000L;
     if(M<0)
         M=8;
-    printk(KERN_INFO "OpenVswitch Init IQM incast detector: interval : %ld , M : %d, iqm_detected: %d \n", interval, M, iqm_detected);
+    printk(KERN_INFO "OpenVswitch Init IQM incast module: interval : %ld , M : %d, iqm_enable: %d \n", interval, M, iqm_enable);
 
     return;
 }
