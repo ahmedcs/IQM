@@ -1,1 +1,5 @@
 theme: jekyll-theme-slate
+title: Incast-Aware Switch-Assisted Congestion Control for Data Centers
+description: This project aims at developing Incast-congestion awareness into switching devices in the data center envirnoments via the explicit feedback of receiver window 
+author: Ahmed MOHAMED ABDELMONIEM SAYED
+author_email: ahmedcs982@gmail.com
