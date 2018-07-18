@@ -91,3 +91,15 @@ To stop the loss_probe module and free the resources issue the following command
 ```
 sudo rmmod -f iqm;
 ```
+
+# For Simulation
+
+Use the files in the NS2-simulations folder and copy them to a folder of your choice (e.g., queue or myqueue) in the NS2 source directory. 
+
+Then add an entry in the source and header files in the MakeFile.in then configure and compile NS2. 
+
+The next step is to design your own experiments, or wait until i upload the TCL scripts, anyways enjoy using the IQM system.
+
+```
+TODO: add the simulation scripts for various experiment scenarios
+```
